@@ -110,7 +110,22 @@
   mask-image: linear-gradient(to right, transparent, black 30%, black 70%, transparent);
 }
 
+.tst-avatar-blur {
+  position: absolute;
+  width: 5.5rem;
+  height: 5.5rem;
+  background: var(--primary);
+  opacity: 0.28;
+  filter: blur(28px);
+  border-radius: 10px;
+  pointer-events: none;
+  z-index: 0;
+  transform: translateZ(0);
+}
+
 .tst-avatar {
+  position: relative;
+  z-index: 1;
   width: 6rem;
   height: 6rem;
   display: block;
@@ -120,6 +135,11 @@
 }
 
 @media (min-width: 768px) {
+  .tst-avatar-blur {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+
   .tst-avatar {
     width: 8rem;
     height: 8rem;

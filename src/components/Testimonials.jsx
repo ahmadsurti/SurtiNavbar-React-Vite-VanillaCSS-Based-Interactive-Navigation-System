@@ -116,6 +116,7 @@ export default function Testimonials() {
           {TESTIMONIALS.map((item, i) => (
             <figure key={item.name} className="tst-item" ref={(el) => (itemsRef.current[i] = el)}>
               <div className="tst-avatar-wrap">
+                <div className="tst-avatar-blur" aria-hidden="true" />
                 <img
                   className="tst-avatar"
                   src={avatarUris[i]}

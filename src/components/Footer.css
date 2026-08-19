@@ -1,0 +1,194 @@
+/* ── FOOTER ── */
+.footer {
+  position: relative;
+  background-color: var(--background);
+  overflow: hidden;
+  padding-top: 5rem;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+
+.footer:hover,
+.footer.is-active {
+  background-color: color-mix(in oklch, #c8f0c8 6%, var(--background));
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.footer-brand-img {
+  width: 2.75rem;
+  height: 2.75rem;
+  object-fit: contain;
+}
+
+.footer-brand-name {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+}
+
+.footer-tagline {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+  max-width: 26ch;
+}
+
+.footer-copy {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: color-mix(in oklch, var(--foreground) 28%, transparent);
+  letter-spacing: 0.02em;
+  margin-top: auto;
+}
+
+.footer-nav {
+  display: contents;
+}
+
+.footer-nav-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-nav-heading {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--foreground) 40%, transparent);
+}
+
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-nav-link {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: color-mix(in oklch, var(--foreground) 58%, transparent);
+  transition: color 0.2s ease;
+}
+
+.footer-nav-link:hover {
+  color: var(--foreground);
+}
+
+/* ── EASTER EGG NOTE (Right-aligned so the arrow points leftwards toward the center) ── */
+.footer-easter-egg {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: 1200px;
+  margin: 2rem auto -2.5rem;
+  padding: 0 2.5rem;
+  user-select: none;
+  pointer-events: none;
+  position: relative;
+  z-index: 5;
+}
+
+.easter-egg-svg {
+  width: min(280px, 75vw);
+  height: auto;
+  overflow: visible;
+  transform: rotate(-3deg);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.easter-egg-text {
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.45rem;
+  font-weight: 400;
+  fill: color-mix(in oklch, #c8f0c8 45%, var(--muted-foreground));
+  letter-spacing: 0.03em;
+  transition: fill 0.4s ease;
+}
+
+.footer:hover .easter-egg-svg,
+.footer.is-active .easter-egg-svg {
+  transform: rotate(-5deg) scale(1.06) translateX(-4px);
+}
+
+.footer:hover .easter-egg-text,
+.footer.is-active .easter-egg-text {
+  fill: #c8f0c8;
+}
+
+/* ── BLEEDING WORDMARK ── */
+.footer-wordmark {
+  font-family: 'Lora', Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(5rem, 18vw, 16rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px color-mix(in oklch, var(--foreground) 30%, transparent);
+  display: block;
+  text-align: center;
+  padding: 1.5rem 0 0;
+  transform: translateY(28%);
+  user-select: none;
+  pointer-events: none;
+  transition: color 0.4s ease, -webkit-text-stroke 0.4s ease;
+}
+
+.footer:hover .footer-wordmark,
+.footer.is-active .footer-wordmark {
+  color: #c8f0c8;
+  -webkit-text-stroke: 2px transparent;
+}
+
+@media (max-width: 1024px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-top {
+    gap: 2rem;
+    padding: 0 1.25rem 3rem;
+  }
+  .footer-easter-egg {
+    padding: 0 1.25rem;
+    margin-bottom: -1.75rem;
+  }
+  .footer-wordmark {
+    font-size: clamp(4rem, 22vw, 7rem);
+  }
+  .easter-egg-text {
+    font-size: 1.25rem;
+  }
+}

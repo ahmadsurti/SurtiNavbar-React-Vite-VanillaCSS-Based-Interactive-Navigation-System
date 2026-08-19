@@ -1,9 +1,9 @@
 import { useEffect, useRef, useMemo } from 'react';
 import { Style, Avatar } from '@dicebear/core';
-import avataaars from '@dicebear/styles/avataaars.json' with { type: 'json' };
+import notionists from '@dicebear/styles/notionists.json' with { type: 'json' };
 import './Testimonials.css';
 
-const AVATAR_STYLE = new Style(avataaars);
+const AVATAR_STYLE = new Style(notionists);
 
 const TESTIMONIALS = [
   {

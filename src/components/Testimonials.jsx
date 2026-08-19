@@ -1,9 +1,9 @@
 import { useEffect, useRef, useMemo } from 'react';
 import { Style, Avatar } from '@dicebear/core';
-import bigSmile from '@dicebear/styles/big-smile.json' with { type: 'json' };
+import avataaars from '@dicebear/styles/avataaars.json' with { type: 'json' };
 import './Testimonials.css';
 
-const BIGSMILE_STYLE = new Style(bigSmile);
+const AVATAR_STYLE = new Style(avataaars);
 
 const TESTIMONIALS = [
   {
@@ -56,7 +56,7 @@ export default function Testimonials() {
     () =>
       TESTIMONIALS.map(
         (item) =>
-          new Avatar(BIGSMILE_STYLE, { seed: item.name }).toDataUri()
+          new Avatar(AVATAR_STYLE, { seed: item.name }).toDataUri()
       ),
     []
   );

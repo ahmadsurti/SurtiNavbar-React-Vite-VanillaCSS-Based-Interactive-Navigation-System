@@ -10,7 +10,7 @@
   --nav-radius: 9999px;
   --btn-radius: 9999px;
   --nav-radius-idle: 0px;
-  --btn-radius-idle: 0px;
+  --btn-radius-idle: 9999px;
   --glass-bg: rgba(255, 255, 255, 0.12);
   --glass-blur: blur(24px) saturate(160%);
   --glass-border: rgba(255, 255, 255, 0.18);

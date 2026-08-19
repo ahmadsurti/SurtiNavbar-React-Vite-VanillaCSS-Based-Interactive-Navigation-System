@@ -119,22 +119,14 @@
   width: min(280px, 75vw);
   height: auto;
   overflow: visible;
-  transform: rotate(-3deg);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .easter-egg-text {
   font-family: 'Indie Flower', cursive;
-  font-size: 1.45rem;
+  font-size: 1.6rem;
   font-weight: 400;
   fill: color-mix(in oklch, #c8f0c8 45%, var(--muted-foreground));
   letter-spacing: 0.03em;
-  transition: fill 0.4s ease;
-}
-
-.footer:hover .easter-egg-svg,
-.footer.is-active .easter-egg-svg {
-  transform: rotate(-5deg) scale(1.06) translateX(-4px);
 }
 
 .footer:hover .easter-egg-text,
@@ -189,6 +181,6 @@
     font-size: clamp(4rem, 22vw, 7rem);
   }
   .easter-egg-text {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
   }
 }

@@ -1,9 +1,12 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useMemo } from 'react';
+import { Style, Avatar } from '@dicebear/core';
+import bigSmile from '@dicebear/styles/big-smile.json' with { type: 'json' };
 import './Testimonials.css';
+
+const BIGSMILE_STYLE = new Style(bigSmile);
 
 const TESTIMONIALS = [
   {
-    initials: 'AC',
     name: 'Amara Chen',
     role: 'CFO, Meridian Capital',
     quote: (
@@ -14,7 +17,6 @@ const TESTIMONIALS = [
     ),
   },
   {
-    initials: 'DO',
     name: 'Daniel Okafor',
     role: 'Head of Risk, Northgate Bank',
     quote: (
@@ -25,7 +27,6 @@ const TESTIMONIALS = [
     ),
   },
   {
-    initials: 'SM',
     name: 'Sofia Marchetti',
     role: 'Founder, Ledgerline',
     quote: (
@@ -36,7 +37,6 @@ const TESTIMONIALS = [
     ),
   },
   {
-    initials: 'VH',
     name: 'Viktor Hale',
     role: 'CTO, Apex Treasury',
     quote: (
@@ -51,6 +51,15 @@ const TESTIMONIALS = [
 export default function Testimonials() {
   const sectionRef = useRef(null);
   const itemsRef = useRef([]);
+
+  const avatarUris = useMemo(
+    () =>
+      TESTIMONIALS.map(
+        (item) =>
+          new Avatar(BIGSMILE_STYLE, { seed: item.name }).toDataUri()
+      ),
+    []
+  );
 
   useEffect(() => {
     let raf = 0;
@@ -107,7 +116,12 @@ export default function Testimonials() {
           {TESTIMONIALS.map((item, i) => (
             <figure key={item.name} className="tst-item" ref={(el) => (itemsRef.current[i] = el)}>
               <div className="tst-avatar-wrap">
-                <div className="tst-avatar" aria-hidden="true">{item.initials}</div>
+                <img
+                  className="tst-avatar"
+                  src={avatarUris[i]}
+                  alt={`Portrait of ${item.name}`}
+                  aria-label={item.name}
+                />
               </div>
               <figcaption className="tst-caption">
                 <blockquote className="tst-quote">{item.quote}</blockquote>
